@@ -44,6 +44,7 @@ RUN set -ex \
 	\
 	&& apk add --no-cache --virtual .build-deps \
 		bison \
+		clang llvm5-dev g++ \
 		coreutils \
 		dpkg-dev dpkg \
 		flex \
@@ -110,6 +111,7 @@ RUN set -ex \
 		--with-libxml \
 		--with-libxslt \
 		--with-icu \
+		--with-llvm \
 	&& make -j "$(nproc)" world \
 	&& make install-world \
 	&& make -C contrib install \
